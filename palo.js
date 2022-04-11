@@ -7,6 +7,7 @@
     let subArrs = getSubArrs(arr)
     let revSubArrs = getRevArrs(subArrs)
     let pals = getPals(subArrs, revSubArrs)
+    // console.log(pals)
     let longestPalArr = getLongestPal(pals)
     let longest = makeString(longestPalArr)
     return longest
@@ -31,11 +32,19 @@ function getPals(subArrs, revSubArrs){
     let pals = []
         for(let i = 0; i<subArrs.length; i++){
             let pal = []
+            // console.log(subArrs[i])
+            // console.log(`rev ${revSubArrs[i]} sub ${subArrs[i]} before loop`)
             for(let j = 0; j<subArrs[i].length; j++){
-                if(subArrs[i][j] !== revSubArrs[i][j]) break
-                pal.push(subArrs[i][j])
+                // console.log(`after loop rev ${revSubArrs[i][j]} sub ${subArrs[i][j]}\n `)
+                if(subArrs[i][j] !== revSubArrs[i][j]) {
+                    // console.log(`not equal rev ${revSubArrs[i]} sub ${subArrs[i]}\n`)
+                    pal = []
+                    break;
+                }
+                pal.push(revSubArrs[i][j])
+                // console.log("pal " + pal + "\n\n")
             }
-            pals.push(pal)
+            if(pal.length > 0) pals.push(pal)
         }
     return pals
 }
@@ -69,4 +78,5 @@ function getSubArrs(arr){
 
 
 // console.log(`answer ${longestPalindrome("rgczcpratwyqxaszbuwwcadruayhasynuxnakpmsyhxzlnxmdtsqqlmwnbxvmgvllafrpmlfuqpbhjddmhmbcgmlyeypkfpreddyencsdmgxysctpubvgeedhurvizgqxclhpfrvxggrowaynrtuwvvvwnqlowdihtrdzjffrgoeqivnprdnpvfjuhycpfydjcpfcnkpyujljiesmuxhtizzvwhvpqylvcirwqsmpptyhcqybstsfgjadicwzycswwmpluvzqdvnhkcofptqrzgjqtbvbdxylrylinspncrkxclykccbwridpqckstxdjawvziucrswpsfmisqiozworibeycuarcidbljslwbalcemgymnsxfziattdylrulwrybzztoxhevsdnvvljfzzrgcmagshucoalfiuapgzpqgjjgqsmcvtdsvehewrvtkeqwgmatqdpwlayjcxcavjmgpdyklrjcqvxjqbjucfubgmgpkfdxznkhcejscymuildfnuxwmuklntnyycdcscioimenaeohgpbcpogyifcsatfxeslstkjclauqmywacizyapxlgtcchlxkvygzeucwalhvhbwkvbceqajstxzzppcxoanhyfkgwaelsfdeeviqogjpresnoacegfeejyychabkhszcokdxpaqrprwfdahjqkfptwpeykgumyemgkccynxuvbdpjlrbgqtcqulxodurugofuwzudnhgxdrbbxtrvdnlodyhsifvyspejenpdckevzqrexplpcqtwtxlimfrsjumiygqeemhihcxyngsemcolrnlyhqlbqbcestadoxtrdvcgucntjnfavylip")}`)
-console.log(longestPalindrome("dad"))
+console.log(longestPalindrome("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"))
+// console.log(longestPalindrome("dad"))
