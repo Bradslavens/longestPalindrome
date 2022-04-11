@@ -4,13 +4,9 @@
  */
  var longestPalindrome = function(s) {
     let arr = [...s]
-    // console.log(arr)
-    let subStrs = getSubStrs(arr)
-    // console.log(subStrs)
-    let revSubStrs = getRevStrs(subStrs)
-    // console.log(revSubStrs)
-    let pals = getPals(subStrs, revSubStrs)
-    // console.log(pals)
+    let subArrs = getSubArrs(arr)
+    let revSubArrs = getRevArrs(subArrs)
+    let pals = getPals(subArrs, revSubArrs)
     let longest = getLongestPal(pals)
     return longest
 };
@@ -41,7 +37,7 @@ function getPals(subArrs, revSubArrs){
     return pals
 }
 
-function getRevStrs(subArrs){
+function revSubArrs(subArrs){
     let revSubs = []
     for(let i = 0; i<subArrs.length; i++){
         let revSub = ""
@@ -53,7 +49,7 @@ function getRevStrs(subArrs){
     return revSubs
 }
 
-function getSubStrs(arr){
+function getSubArrs(arr){
     let subs = []
     for(let i = 0; i<arr.length; i++){
         subs.push(arr[i])
